@@ -7,6 +7,11 @@ const carRoute = require("./src/routes/CarApi");
 const app = express();
 const port = 8000;
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -18,7 +23,7 @@ mongoose
   .connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
   })
   .then(() => console.log("Linked 😉"))
   .catch(err => console.error(err));

@@ -1,0 +1,41 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Car Store"
+  },
+  "host": "localhost:8000",
+  "paths": {
+    "/cars": {
+      "get": {
+        "tags": [
+          "cars"
+        ],
+        "summary": "Fetch cars",
+        "description": "Fetches all cars",
+        "operationId": "fetchUserHours",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cars",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Access denied"
+          }
+        }
+      }
+    }
+  }
+}
