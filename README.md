@@ -14,6 +14,6 @@
 * Testing
     * `npm run test`
 
-### End points
+### Endpoints
 * `/cars`
 * `/api-docs`
