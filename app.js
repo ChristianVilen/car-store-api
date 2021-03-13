@@ -1,14 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 require("dotenv/config");
-// Import routes
-const carRoute = require("./src/routes/CarApi");
 
 const app = express();
 const port = 8000;
 
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = require("./swagger.json");
+// Import routes
+const carRoute = require("./src/routes/CarApi");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
