@@ -1,7 +1,9 @@
 const express = require("express");
+const path = require("path");
 
 const router = express.Router();
 const Data = require("../../models/Car");
+const rootDir = require("../helpers/path");
 
 // Post offer
 router.post("/", async (req, res) => {
@@ -31,6 +33,10 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/add", (req, res) => {
+  res.sendFile(path.join(rootDir, "src", "views", "add-cars.html"));
+});
+
 // Get specific car
 router.get("/:id", async (req, res) => {
   try {
@@ -54,15 +60,19 @@ router.delete("/:id", async (req, res) => {
 // Update car
 router.patch("/:id", async (req, res) => {
   try {
-    const updatedCar = await Data.findByIdAndUpdate(req.params.id, {
-      $set: {
-        make: req.body.make,
-        model: req.body.model,
-        year: req.body.year,
-        power: req.body.power,
-        price: req.body.price
-      }
-    }, { new: true });
+    const updatedCar = await Data.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          make: req.body.make,
+          model: req.body.model,
+          year: req.body.year,
+          power: req.body.power,
+          price: req.body.price
+        }
+      },
+      { new: true }
+    );
     res.json(updatedCar);
   } catch (err) {
     res.json({ message: err });

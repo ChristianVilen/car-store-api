@@ -5,8 +5,8 @@ const router = express.Router();
 
 const rootDir = require("../helpers/path");
 
-router.use((req, res) => {
-  res.status(404).sendFile(path.join(rootDir, "src", "views", "404.html"));
+router.use("/", (req, res) => {
+  res.sendFile(path.join(rootDir, "src", "views", "home.html"));
 });
 
 module.exports = router;

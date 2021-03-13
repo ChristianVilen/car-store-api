@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add Cars</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/cars/add">Add Cars</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Add Cars To Store</h1>
+      <form action="/cars" method="post">
+        <input type="text" name="Make" />
+        <input type="text" name="Model" />
+        <input type="number" name="Year" />
+        <input type="number" name="Power" />
+        <input type="number" name="Price" />
+        <button type="submit">Add Car</button>
+      </form>
+    </main>
+  </body>
+</html>
