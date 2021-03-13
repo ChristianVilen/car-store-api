@@ -17,7 +17,7 @@ app.use(express.json());
 // Routes
 app.use("/cars", carRoute);
 app.use("/docs", docsRoute);
-app.use("/", homeRoute);
+app.use(homeRoute);
 app.use(notFoundRoute);
 
 // Connect to db
