@@ -10,3 +10,15 @@ services:
       - "27017:27017"
     volumes:
       - ./data:/data/db
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    links:
+      - mongo
