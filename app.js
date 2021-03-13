@@ -1,31 +1,25 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = require("./swagger.json");
 require("dotenv/config");
+
+const database = require("./src/database/mongoDB");
+// Import routes
+const carRoute = require("./src/routes/CarApi");
+const docsRoute = require("./src/routes/ApiDocs");
+const notFoundRoute = require("./src/routes/NotFound");
 
 const app = express();
 const port = 8000;
-
-// Import routes
-const carRoute = require("./src/routes/CarApi");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
 app.use("/cars", carRoute);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/docs", docsRoute);
+app.use(notFoundRoute);
 
 // Connect to db
-mongoose
-  .connect(process.env.DB_CONNECTION, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-  })
-  .then(() => console.log("Linked 😉"))
-  .catch(err => console.error(err));
+database.attach();
 
 app.listen(port, () => {
   console.log(`Running on ${port} 🚀`);
