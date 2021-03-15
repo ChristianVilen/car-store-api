@@ -1,0 +1,36 @@
+<%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+  </head>
+  <body>
+    <%- include('./includes/nav.ejs') %>
+    <main>
+      <h1>Cars in store</h1>
+      <p>List of cars</p>
+        <% if (hasCars) { %>
+          <div class="grid">
+              <% for (let car of cars) { %>
+                  <article class="card product-item">
+                      <header class="card__header">
+                          <h1 class="product__title"><%= car.make %></h1>
+                          <h2 class="product__sub_title"><%= car.model %></h2>
+                      </header>
+                      <div class="card__image">
+                          <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="A Book">
+                      </div>
+                      <div class="card__content">
+                          <h2 class="product__price"><%= car.price %> €</h2>
+                          <p class="product__description">Power <%= car.power %>. Year <%= car.year %></p>
+                      </div>
+                      <div class="card__actions">
+                          <button class="btn">View</button>
+                      </div>
+                  </article>
+              <% } %>
+          </div>
+        <% } else { %>
+          <div>
+            <h1>no cars in store</h1>
+          </div>
+        <% } %>
+    </main>
+  <%- include('./includes/end.ejs') %>

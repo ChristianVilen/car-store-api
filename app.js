@@ -12,7 +12,8 @@ const notFoundRoute = require('./src/routes/NotFound');
 const app = express();
 const port = 8000;
 
-app.set('view engine', 'express-handlebars');
+app.set('view engine', 'ejs');
+app.set('views', 'src/views');
 
 // Body parser
 app.use(express.urlencoded({ extended: true }));

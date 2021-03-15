@@ -1,0 +1,21 @@
+<%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+  </head>
+  <body>
+    <%- include('./includes/nav.ejs') %>
+
+    <main>
+      <h1>Add Cars To Store</h1>
+      <form class="product-form" action="/cars" method="POST">
+        <div class="form-control">
+          <input type="text" placeholder="Make" name="make" />
+          <input type="text" placeholder="Model" name="model" />
+          <input type="number" placeholder="Year" name="year" />
+          <input type="number" placeholder="Power" name="power" />
+          <input type="number" placeholder="Price" name="price" />
+        </div>
+        <button class="btn" type="submit">Add Car</button>
+      </form>
+    </main>
+  <%- include('./includes/end.ejs') %>

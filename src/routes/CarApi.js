@@ -1,9 +1,7 @@
 const express = require('express');
-const path = require('path');
 
 const router = express.Router();
 const Data = require('../models/Car');
-const rootDir = require('../helpers/path');
 
 const cars = [];
 
@@ -26,7 +24,6 @@ router.post('/', async (req, res) => {
       power: req.body.power,
       price: req.body.price
     });
-    console.log(req.body);
   } catch (err) {
     res.json({ message: err });
   }
@@ -43,7 +40,13 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/add', (req, res) => {
-  res.sendFile(path.join(rootDir, 'src', 'views', 'add-cars.html'));
+  res.render('add-cars', {
+    pageTitle: 'Add Cars To Store',
+    path: 'cars/add',
+    formsCSS: true,
+    productCSS: true,
+    activeAddCar: true
+  });
 });
 
 // Get specific car
