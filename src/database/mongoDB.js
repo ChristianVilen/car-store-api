@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 module.exports = {
   attach() {
@@ -8,7 +8,7 @@ module.exports = {
         useUnifiedTopology: true,
         useFindAndModify: false
       })
-      .then(() => console.log("Linked 😉"))
+      .then(() => console.log('Linked 😉'))
       .catch(err => console.error(err));
   }
 };

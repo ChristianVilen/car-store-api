@@ -9,6 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Add Cars</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
   </head>
   <body>
     <header class="main-header">
@@ -24,15 +26,15 @@
 
     <main>
       <h1>Add Cars To Store</h1>
-      <form class="product-form" action="/cars" method="post">
+      <form class="product-form" action="/cars" method="POST">
         <div class="form-control">
-          <input type="text" name="Make" />
-          <input type="text" name="Model" />
-          <input type="number" name="Year" />
-          <input type="number" name="Power" />
-          <input type="number" name="Price" />
+          <input type="text" placeholder="Make" name="make" />
+          <input type="text" placeholder="Model" name="model" />
+          <input type="number" placeholder="Year" name="year" />
+          <input type="number" placeholder="Power" name="power" />
+          <input type="number" placeholder="Price" name="price" />
         </div>
-        <button type="submit">Add Car</button>
+        <button class="btn" type="submit">Add Car</button>
       </form>
     </main>
   </body>
