@@ -1,18 +1,8 @@
 const express = require('express');
 
 const router = express.Router();
+const carsController = require('../controllers/cars')
 
-const carData = require('./CarApi');
-
-router.get('/', (req, res) => {
-  res.render('home', {
-    pageTitle: 'Car Store',
-    cars: carData.cars,
-    path: '/',
-    hasCars: carData.cars.length > 0,
-    activeStore: true,
-    productCSS: true
-  });
-});
+router.get('/', carsController.getCars);
 
 module.exports = router;
