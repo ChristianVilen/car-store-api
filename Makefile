@@ -2,7 +2,7 @@ up:
 	docker-compose up -d mongo
 	docker-compose up api
 # Up silent
-ups:
+upd:
 	docker-compose up -d
 
 down:
@@ -11,7 +11,7 @@ down:
 taild:
 	docker logs -f --tail 10 car-store-api_mongo_1
 
-taila:
+tail:
 	docker logs -f --tail 10 car-store-api_api_1
 
 status:
