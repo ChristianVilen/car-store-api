@@ -42,11 +42,13 @@ exports.updateCar = async (req, res) => {
 
 exports.deleteCar = async (req, res) => {
   try {
+    console.log(req.params);
     const deletedCar = await Data.findByIdAndRemove(req.params.id);
-    res.json({ message: `Deleted car id: ${deletedCar.id}` });
+    console.log(`Deleted car id: ${deletedCar.id}`);
   } catch (err) {
     res.json({ message: err });
   }
+  res.redirect('/');
 };
 
 exports.getCars = async (req, res) => {
@@ -55,7 +57,10 @@ exports.getCars = async (req, res) => {
     res.render('admin/cars', {
       pageTitle: 'Admin Cars',
       data,
-      path: '/admin/cars'
+      path: '/admin/cars',
+      hasCars: data.length > 0,
+      activeStore: true,
+      productCSS: true
     });
   } catch (err) {
     res.json({ message: err });

@@ -1,0 +1,14 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+<%- include('../includes/nav.ejs') %>
+<main class="centered">
+    <h1><%= car.make %></h1>
+    <h2><%= car.model %></h2>
+    <hr>
+    <p><%= car.price %></p>
+    <p><%= car.power %></p>
+    <%- include('../includes/add-to-cart.ejs') %>
+</main>
+
+<%- include('../includes/end.ejs') %>

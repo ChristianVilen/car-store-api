@@ -7,13 +7,23 @@
 
     <main>
       <h1>Add Cars To Store</h1>
-      <form class="product-form" action="/cars" method="POST">
+      <form class="product-form" action="/admin/add-cars" method="POST">
         <div class="form-control">
-          <input type="text" placeholder="Make" name="make" />
-          <input type="text" placeholder="Model" name="model" />
-          <input type="number" placeholder="Year" name="year" />
-          <input type="number" placeholder="Power" name="power" />
-          <input type="number" placeholder="Price" name="price" />
+          <label for="make">Make
+            <input type="text" name="make" />
+          </label>
+          <label for="model">Model
+            <input type="text" name="model" />
+          </label>
+          <label for="year">Year
+            <input type="number" name="year" />
+          </label>
+          <label for="power">Power
+            <input type="number" name="power" />
+          </label>
+          <label for="price">Price
+            <input type="number" name="price" />
+          </label>
         </div>
         <button class="btn" type="submit">Add Car</button>
       </form>
