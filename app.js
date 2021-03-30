@@ -4,8 +4,8 @@ require('dotenv/config');
 
 const database = require('./src/database/mongoDB');
 // Import routes
-const homeRoute = require('./src/routes/Home');
-const carRoute = require('./src/routes/CarApi');
+const shopRoute = require('./src/routes/Shop');
+const adminRoute = require('./src/routes/Admin');
 const docsRoute = require('./src/routes/ApiDocs');
 const notFoundRoute = require('./src/routes/NotFound');
 
@@ -21,9 +21,9 @@ app.use(express.json());
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 // Routes
-app.use('/cars', carRoute.routes);
+app.use('/admin', adminRoute.routes);
 app.use('/docs', docsRoute);
-app.use('/', homeRoute);
+app.use('/', shopRoute);
 app.use('*', notFoundRoute);
 
 // Connect to db
